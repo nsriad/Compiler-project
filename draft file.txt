@@ -1,0 +1,97 @@
+"break"			{ return BREAK ; }
+"case"			{ return CASE ; }
+"char"			{ return CHAR ; }
+"continue"		{ return CONTINUE ; }
+"default"		{ return DEFAULT ; }
+"double"		{ return DOUBLE ; }
+"else"			{ return ELSE ; }
+"float"			{ return FLOAT ; }
+"for"			{ return FOR ; }
+"if"			{ return IF ; }
+"int"			{ return INT ; }
+"return"		{ return RETURN ; }
+"switch"		{ return SWITCH ; }
+"void"			{ return VOID ; }
+"while"			{ return WHILE ; }
+
+{ALPHA}({ALPHA}|{NUM})*     { yylval = *yytext ; check_type() ;}
+
+
+type_name "break"|"case"|"char"|"continue"|"default"|"double"|"else"|"float"|"for"|"if"|"int"|"return"|"switch"|"void"|"while"
+
+
+
+{BREAK}			{ return BREAK ; }
+{CASE}			{ return CASE ; }
+{CHAR}			{ return CHAR ; }
+{CONTINUE}		{ return CONTINUE ; }
+{DEFAULT}		{ return DEFAULT ; }
+{DOUBLE}		{ return DOUBLE ; }
+{ELSE}			{ return ELSE ; }
+{FLOAT}			{ return FLOAT ; }
+{FOR}			{ return FOR ; }
+{IF}			{ return IF ; }
+{INT}			{ return INT ; }
+{RETURN}		{ return RETURN ; }
+{SWITCH}		{ return SWITCH ; }
+{VOID}			{ return VOID ; }
+{WHILE}			{ return WHILE ; }
+
+
+
+
+loop_statement : for_statement statement
+    |while_statement statement
+    |BREAK statement
+    |CONTINUE statement
+    ;
+
+while_statement : WHILE '(' expression ')' '{' statement ')' statement   {if($3) printf("In while: %d\n",$6);
+						 else printf("Not in while\n");}
+    ;
+
+for_statement : FOR '(' var_declare ';' expression ';' var_declare ')' '{' statement '}' statement     {if($5) printf("In for: %d\n",$10);
+						 else printf("Not in for\n");}
+    ;
+
+switch_statement : SWITCH
+
+func_statement : RETURN
+
+
+
+
+
+
+
+
+    |loop_statement statement   { printf("loop dec Successful\n");}
+    |switch_statement statement { printf("switch dec Successful\n");}
+    |func_statement statement   { printf("func dec Successful\n");}
+
+
+
+
+
+
+	while ( 7>3 )
+	{
+		y = 10 , z = 5 ;
+
+		if ( 7<8 )
+		{
+			break ;
+		}
+		else
+		{
+			continue ;
+		}
+	}
+
+	for ( i = 1 ; i<10 ; i++ )
+	{
+		if (i == 5)
+		{
+			7*7+7 ;
+		}
+	}

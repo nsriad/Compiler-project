@@ -1,0 +1,17 @@
+Output : 10
+Output : 81
+in for : 1
+in for : 2
+in for : 3
+in for : 4
+in for : 5
+in for : 6
+in for : 7
+in for : 8
+in for : 9
+in while : 1
+in while : 2
+in while : 3
+in while : 4
+in while : 5
+Output : 20

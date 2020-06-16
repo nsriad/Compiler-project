@@ -1,0 +1,14 @@
+main()
+{
+    int x = 10 ;
+    out x ;
+
+    F_add () ;
+
+}
+
+void F_add()
+{
+    int y = 20 ;
+    out y ;
+}
